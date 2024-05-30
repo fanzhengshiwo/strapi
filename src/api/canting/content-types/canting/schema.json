@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cantings",
+  "info": {
+    "singularName": "canting",
+    "pluralName": "cantings",
+    "displayName": "canting",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "cantings": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::canting.canting",
+      "inversedBy": "Category"
+    },
+    "Category": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::canting.canting",
+      "inversedBy": "cantings"
+    }
+  }
+}
